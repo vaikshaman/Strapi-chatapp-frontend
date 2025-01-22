@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 import io from "socket.io-client";
 import "../../styles/chat.css";
+import Header from "../header/header";
 
 // Assuming the user is logged in and stored in localStorage
 const socket = io("https://strapi-chatapp-o1di.onrender.com", {
@@ -76,53 +77,60 @@ const ChatBox = () => {
   };
 
   return (
-    <div className="chat-container">
-      {/* Personalized welcome message */}
-      <h2>Hello, {user}!</h2>
-      <p>Welcome to the Strapi chat app. Start chatting below.</p>
+    <div className="container">
+  <div className="side-content">
+    <h3>Welcome</h3>
+    <p>
+      Explore our chat application. Switch sessions, connect with others, and 
+      enjoy seamless communication.
+    </p>
+    <button>Learn More</button>
+  </div>
+  <div className="chat-container">
+    <h2>Hello, {user}!</h2>
+    <p>Welcome to the Strapi chat app. Start chatting below.</p>
 
-      <div className="session-selector">
-        <label>Select Chat Session:</label>
-        <select
-          value={sessionId}
-          onChange={(e) => switchSession(e.target.value)}
-        >
-          {Object.keys(allSessions).map((session) => (
-            <option key={session} value={session}>
-              {session}
-            </option>
-          ))}
-          <option value="new-session">+ New Session</option>
-        </select>
-      </div>
-
-      <div className="chat-box">
-        {messages.length > 0 ? (
-          messages.map((msg, index) => (
-            <div key={index} className="message">
-              <span className="message-user">{msg.user}</span>: {msg.text}
-              <span className="message-time">
-                ({new Date(msg.timestamp).toLocaleTimeString()})
-              </span>
-            </div>
-          ))
-        ) : (
-          <p className="no-messages">No messages yet. Start the conversation!</p>
-        )}
-      </div>
-
-      <div className="input-container">
-        <input
-          type="text"
-          placeholder="Type your message..."
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-        />
-        <button onClick={sendMessage} disabled={!message.trim()}>
-          Send
-        </button>
-      </div>
+    <div className="session-selector">
+      <label>Select Chat Session:</label>
+      <select value={sessionId} onChange={(e) => switchSession(e.target.value)}>
+        {Object.keys(allSessions).map((session) => (
+          <option key={session} value={session}>
+            {session}
+          </option>
+        ))}
+        <option value="new-session">+ New Session</option>
+      </select>
     </div>
+
+    <div className="chat-box">
+      {messages.length > 0 ? (
+        messages.map((msg, index) => (
+          <div key={index} className="message">
+            <span className="message-user">{msg.user}</span>: {msg.text}
+            <span className="message-time">
+              ({new Date(msg.timestamp).toLocaleTimeString()})
+            </span>
+          </div>
+        ))
+      ) : (
+        <p className="no-messages">No messages yet. Start the conversation!</p>
+      )}
+    </div>
+
+    <div className="input-container">
+      <input
+        type="text"
+        placeholder="Type your message..."
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
+      />
+      <button onClick={sendMessage} disabled={!message.trim()}>
+        Send
+      </button>
+    </div>
+  </div>
+</div>
+
   );
 };
 

@@ -1,61 +1,229 @@
-.chat-container {
+/* chat.css */
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  
+  gap: 20px;
   width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 10px;
-  background-color: #f9f9f9;
+  margin-top: 30px;
+  max-width: 1200px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Side content styling */
+.side-content {
+  background-color: #f9f9f9;
+  padding: 10px;
+
+  border-right: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.side-content h3 {
+  color: #007acc;
+  margin-bottom: 10px;
+}
+
+.side-content p {
+  font-size: 14px;
+  color: #555555;
+  line-height: 1.5;
+}
+
+.side-content button {
+  padding: 10px 20px;
+  font-size: 14px;
+  color: #ffffff;
+  background: linear-gradient(90deg, #4facfe, #00f2fe);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 20px;
+}
+
+.side-content button:hover {
+  background: linear-gradient(90deg, #3b9ffe, #00d2fe);
+}
+
+/* Chat box styling */
+.chat-container {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+}
+
+.chat-container h2 {
+  margin: 0;
+  padding: 20px;
+  background: linear-gradient(90deg, #4facfe, #00f2fe);
+  color: #ffffff;
+  font-size: 20px;
+  text-align: center;
+}
+
+.chat-container p {
+  margin: 0;
+  padding: 10px 20px;
+  font-size: 14px;
+  color: #555555;
+  text-align: center;
+  background-color: #f1f1f1;
 }
 
 .chat-box {
-  padding: 15px;
-  max-height: 400px;
-  overflow-y: auto;
-  background-color: #fff;
-  border-radius: 6px;
+  flex: 1; /* Take available space */
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  overflow-y: auto; /* Enable scrolling */
+}
+.session-selector {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.message {
-  margin-bottom: 10px;
-  padding: 5px;
-  border-radius: 5px;
-  background-color: #e6e6e6;
-}
-
-.message-user {
+.session-selector label {
+  display: block;
   font-weight: bold;
-  margin-right: 5px;
+  margin-bottom: 8px;
+  color: #333;
 }
 
-.message-time {
-  font-size: 0.8em;
-  color: #999;
+.session-selector select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+}
+
+.session-selector select:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+
+.chat-box .message {
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 8px;
+  background: #e6f7ff;
+  position: relative;
+}
+
+.chat-box .message-user {
+  font-weight: bold;
+  color: #007acc;
+}
+
+.chat-box .message-time {
+  font-size: 12px;
+  color: #888888;
+  margin-left: 8px;
+}
+
+.chat-box .message:nth-child(even) {
+  background: #fef5e7;
+}
+
+.no-messages {
+  color: #888888;
+  font-size: 14px;
+  text-align: center;
+  padding: 10px;
 }
 
 .input-container {
   display: flex;
-  margin-top: 10px;
-}
-
-input {
-  width: 80%;
-  padding: 10px;
-  margin-right: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-button {
   padding: 10px 20px;
-  background-color: #4CAF50;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  border-top: 1px solid #e0e0e0;
+  background-color: #ffffff;
 }
 
-button:hover {
-  background-color: #45a049;
+.input-container input {
+  flex: 1;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  margin-right: 10px;
 }
+
+.input-container button {
+  padding: 10px 20px;
+  font-size: 14px;
+  color: #ffffff;
+  background: linear-gradient(90deg, #4facfe, #00f2fe);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.input-container button:disabled {
+  background: #cccccc;
+  cursor: not-allowed;
+}
+
+.input-container button:hover:not(:disabled) {
+  background: linear-gradient(90deg, #3b9ffe, #00d2fe);
+}
+
+/* Scrollbar customization */
+.chat-box::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chat-box::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 8px;
+}
+
+.chat-box::-webkit-scrollbar-thumb {
+  background: #cccccc;
+  border-radius: 8px;
+}
+
+.chat-box::-webkit-scrollbar-thumb:hover {
+  background: #aaaaaa;
+}
+
+
+@media (max-width: 600px) {
+  .container{
+    flex-direction: column;
+  }
+}
+
+

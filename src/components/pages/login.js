@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Use useNavigate instead of useHistory
-import "../../styles/login.css"
+import { useNavigate } from "react-router-dom";
+import "../../styles/login.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate(); // Initialize navigate
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -19,7 +19,7 @@ const Login = () => {
     const data = await response.json();
     if (data.jwt) {
       alert("Welcome to Strapi Chat App!");
-      localStorage.setItem("jwt", data.jwt); // Store JWT for future use
+      localStorage.setItem("jwt", data.jwt); // Store JWT
       navigate("/chat"); // Redirect to the chat page
     } else {
       alert("Login failed, please check your credentials.");

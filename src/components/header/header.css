@@ -1,48 +1,53 @@
 /* Basic Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
-  }
+
   
-  /* Full page layout */
-  body, html {
-    height: 100%;
-    font-family: 'Arial', sans-serif;
-  }
+
   
   /* Header styling */
   .header {
     background: linear-gradient(135deg, #3498db, #2ecc71);
-    padding: 20px;
+    
+    width: 100vw;
+    height: 18vh;
+    
     color: #fff;
     text-align: center;
-    position: relative;
+    justify-content: center;
+  }
+  
+  .header-content{
+    display: flex;
+    width: 100%;
+    margin-top: 40px;
+    flex-direction: row;
+    justify-content: space-around;
   }
   
   .header h1 {
     font-size: 3rem;
     font-weight: bold;
     margin-bottom: 10px;
+    margin: 0;
   }
   
   .subheading {
     font-size: 1.2rem;
     color: #f5f5f5;
     margin-bottom: 20px;
+    margin: 0;
   }
   
   .button-container {
     display: flex;
     justify-content: center;
     gap: 20px;
-    margin-bottom: 20px;
+   
   }
   
   .login-btn, .logout-btn {
-    padding: 12px 20px;
-    font-size: 1.1rem;
+    padding: 10px 15px;
+    font-size: 1rem;
+    height: 2.5vw;
     border: none;
     border-radius: 25px;
     cursor: pointer;
@@ -92,20 +97,33 @@
     font-size: 1.1rem;
     color: #fff;
   }
+
   
+    
   /* Responsive Design */
-  @media (max-width: 768px) {
+  @media (max-width: 500px) {
     .header h1 {
-      font-size: 2rem;
+      font-size: 1.5rem;
     }
   
     .subheading {
-      font-size: 1rem;
+      font-size: 0.8rem;
     }
   
     .button-container {
       flex-direction: column;
       gap: 10px;
     }
+
+    .login-btn, .logout-btn {
+        padding: 10px 15px;
+      
+        height: 10vw;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+      }
+      
   }
   

@@ -5,19 +5,21 @@ import Register from "./components/pages/register";
 import Login from "./components/pages/login";
 import ChatBox from "./components/pages/chat";
 import Header from "./components/header/header";
+import Logout from "./components/pages/Logout";
 
 
 const Appr = () => {
   return (
   
-    <Router>
+   
       <Routes>
         <Route path="/" element={<WelcomePage/>} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/chat" element={<ChatBox />} />
+        <Route path="/logout" element={<Logout />} />
       </Routes>
-    </Router>
+   
   );
 };
 

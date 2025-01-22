@@ -1,20 +1,4 @@
-/* Basic Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
-  }
-  
-  /* Full page layout */
-  body, html {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #f5f7fa;
-  }
-  
+
   /* Authentication page styling */
   .auth-page {
     display: flex;
